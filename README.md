@@ -43,6 +43,38 @@ shasum -a 256 CrossOver-Patcher-0.2.0-macOS.zip
 
 本项目不提供或二次分发 CrossOver、完整 Wine 运行时、Game Porting Toolkit、D3DMetal、游戏或反作弊程序。
 
+## 从仓库构建完整 App
+
+仓库包含 MIT 许可的 SwiftUI App 外壳源码、测试、构建脚本、两个受支持版本的 profile，以及已经编译好的专有 PatchCore。PatchCore 源码不在仓库中。
+
+构建要求：
+
+- Apple Silicon Mac
+- macOS 14 或更高版本
+- Xcode Command Line Tools（`xcode-select -p` 可正常返回）
+
+```sh
+git clone https://github.com/dazi2011/crossover-patcher.git
+cd crossover-patcher
+./build.sh
+```
+
+脚本会先验证 PatchCore 和全部 profile 的 SHA-256，编译 App 外壳，组装完整 App，进行 ad-hoc 签名并运行完整性检查。输出为：
+
+```text
+$TMPDIR/crossover-patcher-dist/CrossOver Patcher.app
+dist/CrossOver-Patcher-0.2.0-macOS.zip
+dist/SHA256SUMS.txt
+```
+
+执行全部单元测试、核心/profile 校验和完整 App 组装测试：
+
+```sh
+./script/test_private.sh
+```
+
+这里的 `private` 是早期内部构建脚本保留的文件名，不代表必须访问私有仓库；公开仓库的干净克隆包含完成构建所需的文件。
+
 ## 图形界面使用方法
 
 1. 解压 ZIP。
@@ -82,9 +114,11 @@ Preview 用户应将路径改为自己的官方 `CrossOver Preview.app`。已经
 
 ## 为什么闭源
 
-PatchCore 和版本 profile 暂时保持闭源。公开完整实现细节可能使兼容方法过早失效，也会增加未经验证的变体和不安全修改。公开仓库只发布可校验的二进制和文档。
+PatchCore 和版本 profile 暂时保持闭源。公开完整实现细节可能使兼容方法过早失效，也会增加未经验证的变体和不安全修改。SwiftUI App 外壳、协议、测试和构建脚本已经开源；仓库通过编译好的 PatchCore 提供完整可构建版本，但不提供 PatchCore 源码。
 
 二进制闭源不影响 Wine 等第三方组件原有的许可证权利。对于本项目发布中受 LGPL 覆盖的修改，自每个公开版本发布之日起至少三年内，可通过本仓库 Issues 请求对应的机器可读源代码和构建材料；该书面提供不包含专有 PatchCore 源码。
+
+各部分的许可范围以根目录 `LICENSE`、`PrivateComponents/LICENSE.txt` 和 `Resources/THIRD_PARTY_NOTICES.txt` 为准。
 
 ## macOS 拦截或显示“已损坏”
 

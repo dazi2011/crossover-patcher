@@ -1,0 +1,12 @@
+.build/
+.swiftpm/
+build/
+dist/
+out/
+release/
+*.zip
+*.dmg
+.DS_Store
+
+# Local-only maintainer inputs and generated artifacts.
+Internal/

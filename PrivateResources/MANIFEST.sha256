@@ -1,0 +1,6 @@
+3aef8d65081edf36373c7f5eea88db60c0128957bcee47e9ecc82f7a717db2f6  preview-20260717-27.0.0.40734-singlefile/deltas/ntdll.mcpdelta
+d19fca7d7a6493781e999beaca1d84dc95292b700a163bc6c833b804659cc4fa  preview-20260717-27.0.0.40734-singlefile/deltas/kernel32.mcpdelta
+86c31e48c0284ec50746fc1942f32359072a2ca242ece322e826f6c462586659  preview-20260717-27.0.0.40734-singlefile/deltas/ntoskrnl.mcpdelta
+4c3da2ab412f68ff114b856be75a3e88dbf2314426a172a4afb447282f7a6b18  crossover-26.3-26.3.0.39832-singlefile/deltas/ntdll.mcpdelta
+eb6b08f467ab058c4e74be3aaf26f4701a56962ab9be287cd2b0e61a5eb143b9  crossover-26.3-26.3.0.39832-singlefile/deltas/kernel32.mcpdelta
+7bbc5fc3968fd678b956e1f4873f5b792c16f0286cbf2b7394f49715dca10cec  crossover-26.3-26.3.0.39832-singlefile/deltas/ntoskrnl.mcpdelta

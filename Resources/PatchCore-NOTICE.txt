@@ -1,0 +1,8 @@
+PatchCore is a proprietary compiled component and is not covered by the MIT
+license for the CrossOver Patcher shell. Its source code is not included. The
+limited permission to redistribute the unmodified binary is described in
+PrivateComponents/LICENSE.txt in the source repository.
+
+PatchCore's separate status does not alter or restrict the licenses of Wine or
+other third-party components. Official binary releases must include all
+applicable notices and corresponding source required by those licenses.

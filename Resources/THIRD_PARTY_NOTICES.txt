@@ -1,0 +1,38 @@
+CrossOver Patcher - Third-Party Notices
+========================================
+
+Launcher shell
+--------------
+
+The SwiftUI launcher shell is licensed under the MIT License. A copy is included
+in Resources/Licenses/MIT.txt.
+
+Wine-derived compatibility components
+-------------------------------------
+
+Official binary builds may contain version-bound compatibility resources that
+produce modified components derived from Wine, plus compatibility libraries
+licensed under the GNU Lesser General Public License, version 2.1 or later.
+Wine is copyright the Wine project authors and its contributors. A copy of the
+LGPL is included in Resources/Licenses/LGPL-2.1-or-later.txt.
+
+For a period of at least three years from a public binary release, the project
+offers the complete corresponding machine-readable source and build materials
+for its exact LGPL-covered modifications. Request the materials through the
+public repository's issue tracker. This offer does not include proprietary
+PatchCore source.
+
+PatchCore
+---------
+
+PatchCore is a separately built proprietary component. No PatchCore source-code
+license is granted by the binary distribution. This notice does not limit rights
+granted by mandatory law or by licenses that cover third-party components
+processed by PatchCore.
+
+Excluded products
+-----------------
+
+CrossOver, Apple's Game Porting Toolkit/D3DMetal, Wuthering Waves, and ACE are
+not licensed by this project and are not included as complete products. Users
+must supply their own authorized installations.

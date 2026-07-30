@@ -1,0 +1,5 @@
+*.dylib binary
+*.mcpdelta binary
+PrivateComponents/PatchCore binary
+*.zip binary
+*.dmg binary

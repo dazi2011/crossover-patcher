@@ -1,0 +1,18 @@
+Copyright (c) 2026. All rights reserved.
+
+PatchCore is proprietary software distributed only as a compiled binary. Its
+source code is not included in this repository and no source-code license is
+granted.
+
+Permission is granted to download and copy the unmodified PatchCore binary, and
+to redistribute it only as part of an unmodified clone or fork of the official
+CrossOver Patcher repository or inside a complete CrossOver Patcher application
+assembled by this repository's official build scripts.
+
+No permission is granted to sell, sublicense, modify, reverse engineer,
+decompile, disassemble, or redistribute PatchCore separately from those two
+permitted forms, except to the extent that such a restriction is prohibited by
+mandatory law.
+
+This notice does not restrict rights independently granted by third-party
+licenses and does not relicense third-party code or data processed by PatchCore.

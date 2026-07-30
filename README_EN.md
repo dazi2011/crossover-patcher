@@ -43,6 +43,38 @@ Requirements:
 
 This project does not provide or redistribute CrossOver, a complete Wine runtime, Game Porting Toolkit, D3DMetal, the game, or anti-cheat software.
 
+## Build the complete app from the repository
+
+The repository contains the MIT-licensed SwiftUI app-shell source, tests, build scripts, profiles for both supported builds, and a precompiled proprietary PatchCore. PatchCore source code is not included.
+
+Build requirements:
+
+- Apple Silicon Mac
+- macOS 14 or later
+- Xcode Command Line Tools (`xcode-select -p` must succeed)
+
+```sh
+git clone https://github.com/dazi2011/crossover-patcher.git
+cd crossover-patcher
+./build.sh
+```
+
+The script verifies the SHA-256 of PatchCore and every profile, compiles the app shell, assembles the complete app, applies an ad-hoc signature, and runs integrity checks. Outputs:
+
+```text
+$TMPDIR/crossover-patcher-dist/CrossOver Patcher.app
+dist/CrossOver-Patcher-0.2.0-macOS.zip
+dist/SHA256SUMS.txt
+```
+
+Run all unit tests, core/profile checks, and complete-app assembly tests with:
+
+```sh
+./script/test_private.sh
+```
+
+`private` is retained in this legacy script filename; it does not mean that access to a private repository is required. A clean clone of this public repository contains all files needed for the build.
+
 ## GUI usage
 
 1. Extract the ZIP.
@@ -82,9 +114,11 @@ It does not modify game files, anti-cheat files, or CrossOver bottles. Future ve
 
 ## Why the patcher is closed source
 
-PatchCore and version profiles are currently proprietary. Publishing the complete implementation could make the compatibility method fail sooner and encourage unverified or unsafe variants. This repository distributes only a verifiable binary and documentation.
+PatchCore and version profiles are currently proprietary. Publishing the complete implementation could make the compatibility method fail sooner and encourage unverified or unsafe variants. The SwiftUI app shell, protocol, tests, and build scripts are open source. The repository includes a compiled PatchCore so a clean clone can build the complete app, but it does not include PatchCore source code.
 
 The proprietary status does not remove rights granted by third-party licenses such as Wine's LGPL. For at least three years after each public release, corresponding machine-readable source and build materials for LGPL-covered modifications are available on request through this repository's Issues. This written offer does not include proprietary PatchCore source.
+
+The exact license boundaries are defined by the root `LICENSE`, `PrivateComponents/LICENSE.txt`, and `Resources/THIRD_PARTY_NOTICES.txt`.
 
 ## If macOS blocks the app or reports it as damaged
 
