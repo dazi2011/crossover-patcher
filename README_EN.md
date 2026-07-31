@@ -137,6 +137,10 @@ Use this order:
 
 Do not disable SIP, Gatekeeper, XProtect, or quarantine globally. Stop if macOS explicitly identifies malware or says the app will damage the computer.
 
+## Notes
+
+Due to unknown reasons, the Wuthering Waves launcher cannot run properly in CrossOver. Please use a virtual machine or another method to download the game. A Windows 11 container is recommended, as ACE (anti-cheat system) behaves differently across different operating system versions, which may cause the game to fail to launch.
+
 ## Account risk
 
 This is an unofficial compatibility modification and carries a non-zero account-enforcement risk. Game or anti-cheat updates may lead to restrictions, suspension, or permanent termination. No one can honestly guarantee that the risk is minor or that an account is safe. Use at your own risk, especially with important accounts.
