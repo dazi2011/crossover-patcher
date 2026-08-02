@@ -25,16 +25,20 @@ final class PatcherStore: ObservableObject {
     private let inspector: CrossOverInspector
     private let bottleDiscovery: BottleDiscoveryService
     private let coreClient: PatchCoreClient
+    private let identityRepairer: AppCodeIdentityRepairing
+    private let identityRepairQueue = DispatchQueue(label: "dev.crossover-patcher.identity-repair", qos: .userInitiated)
     private var execution: CoreExecution?
 
     init(
         inspector: CrossOverInspector = CrossOverInspector(),
         bottleDiscovery: BottleDiscoveryService = BottleDiscoveryService(),
-        coreClient: PatchCoreClient = BundledPatchCoreClient()
+        coreClient: PatchCoreClient = BundledPatchCoreClient(),
+        identityRepairer: AppCodeIdentityRepairing = AppCodeIdentityRepairService()
     ) {
         self.inspector = inspector
         self.bottleDiscovery = bottleDiscovery
         self.coreClient = coreClient
+        self.identityRepairer = identityRepairer
     }
 
     var isSupported: Bool {
@@ -131,13 +135,45 @@ final class PatcherStore: ObservableObject {
         if let message = event.message { logs.append(message) }
         switch event.kind {
         case .completed:
-            let output = URL(fileURLWithPath: event.outputAppPath ?? crossover?.url.path ?? "")
-            runState = .succeeded(app: output, bottleName: event.outputBottleName)
-            progress = 1
+            guard let outputAppPath = event.outputAppPath, !outputAppPath.isEmpty else {
+                runState = .failed("PatchCore 没有返回输出 App 路径，已拒绝刷新代码身份。")
+                return
+            }
+            refreshCodeIdentity(
+                appURL: URL(fileURLWithPath: outputAppPath),
+                bottleName: event.outputBottleName
+            )
         case .failed:
             runState = .failed(event.message ?? "PatchCore 报告失败。")
         default:
             break
+        }
+    }
+
+    private func refreshCodeIdentity(appURL: URL, bottleName: String?) {
+        phase = "刷新 App 代码身份"
+        progress = 0.98
+        logs.append("写入无运行语义 nonce，保留 entitlement 并重新签名输出 App。")
+
+        let identityRepairer = self.identityRepairer
+        identityRepairQueue.async { [weak self] in
+            let result = Result { try identityRepairer.repair(appURL: appURL) }
+            DispatchQueue.main.async {
+                guard let self else { return }
+                switch result {
+                case let .success(repair):
+                    if let cdHash = repair.cdHash {
+                        self.logs.append("代码身份刷新完成；新 CDHash：\(cdHash)。")
+                    } else {
+                        self.logs.append("代码身份刷新与 deep/strict 验证完成。")
+                    }
+                    self.phase = "完成"
+                    self.progress = 1
+                    self.runState = .succeeded(app: appURL, bottleName: bottleName)
+                case let .failure(error):
+                    self.runState = .failed("Patch 已完成，但刷新 App 代码身份失败：\(error.localizedDescription)")
+                }
+            }
         }
     }
 }
