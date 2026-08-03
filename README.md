@@ -139,7 +139,7 @@ PatchCore 和版本 profile 暂时保持闭源。公开完整实现细节可能�
 
 ## 注意事项
 
-鸣潮启动器由于未知原因无法在crossover里面正常使用，请使用虚拟机或其他方式下载游戏。建议使用win11容器，ACE在不同系统版本上的表现不同，可能导致游戏无法启动。若鸣潮启动时ACE报告13-131104-257错误（此错误为ACE对电脑的环境检测异常，目前没有百分之百的修复方法)，请尝试新建容器或重新获取官方原版满足条件的crossover进行修补，可以尝试重启电脑或使用 `SteamOS=1 STEAMDECK=1` 尝试启动。若多次尝试不同组合后仍然报错,请使用(CrossOver preview.7z)。
+鸣潮启动器由于未知原因无法在crossover里面正常使用，请使用虚拟机或其他方式下载游戏。建议使用win11容器，ACE在不同系统版本上的表现不同，可能导致游戏无法启动。若鸣潮启动时ACE报告13-131104-257错误（此错误为ACE对电脑的环境检测异常，目前没有百分之百的修复方法)，请尝试新建容器或重新获取官方原版满足条件的crossover进行修补，可以尝试重启电脑或使用 `SteamOS=1 STEAMDECK=1` 尝试启动。若多次尝试不同组合后仍然报错,请使用[(CrossOver preview.7z)](https://github.com/dazi2011/crossover-patcher/releases/tag/CrossoverApp)。
 
 ## 账号风险
 
