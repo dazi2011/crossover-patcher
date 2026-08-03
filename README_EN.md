@@ -151,4 +151,4 @@ The patcher runs locally and does not upload game logs, account data, or device 
 
 ## Independent-project disclaimer
 
-This project is not affiliated with, endorsed by, sponsored by, or supported by Kuro Games, Tencent, CodeWeavers, Apple, or any anti-cheat vendor. CrossOver, Wine, Wuthering Waves, D3DMetal, and all other names and trademarks belong to their respective owners.
+This project is not affiliated with, endorsed by, sponsored by, or supported by Kuro Games, Tencent, CodeWeavers, Apple, or any anti-cheat vendor. CrossOver, Wine, Wuthering Waves, D3DMetal, and all other names and trademarks belong to their respective owners.The CrossOver application binaries distributed by this project have not undergone any cracking, license bypassing, or other modifications intended to circumvent licensing restrictions. For this redistribution, CodeWeavers is welcome to contact me via GitHub Issues at any time to request the removal of this repository or any redistributed files, and I will promptly cooperate with such requests.
