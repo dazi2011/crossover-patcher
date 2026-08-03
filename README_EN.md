@@ -139,7 +139,7 @@ Do not disable SIP, Gatekeeper, XProtect, or quarantine globally. Stop if macOS 
 
 ## Notes
 
-Due to unknown reasons, the Wuthering Waves launcher cannot run properly in CrossOver. Please use a virtual machine or another method to download the game. A Windows 11 container is recommended, as ACE (anti-cheat system) behaves differently across different operating system versions, which may cause the game to fail to launch.
+Due to unknown reasons, the Wuthering Waves launcher cannot run properly in CrossOver. Please use a virtual machine or another method to download the game. A Windows 11 container is recommended, as ACE (anti-cheat system) behaves differently across different operating system versions, which may cause the game to fail to launch.If Wuthering Waves fails to start and ACE reports error 13-131104-257 (this error indicates an abnormal environment detection issue by ACE. Currently, there is no guaranteed solution that works in all cases), please try creating a new container or applying the patch to a clean, official CrossOver installation that meets the required conditions. You may also try rebooting your computer or launching the game with the environment variables `SteamOS=1 STEAMDECK=1`.If the error persists after trying different configurations and combinations, please use [⁠(CrossOver preview.7z)](https://github.com/dazi2011/crossover-patcher/releases/tag/CrossoverApp).
 
 ## Account risk
 
